@@ -28,8 +28,18 @@ const Navbar = () => {
   return (
     <>
       <header className="flex w-full px-5 py-2 justify-between bg-gray-100">
-        <Link href={"/"} className="flex items-center">
-          <img src={"/icon.svg"} alt="Bin Buddy Icon" className="w-5 md:w-10" />
+        <Link
+          href={"/"}
+          className="flex items-center"
+          onClick={() => {
+            settoggleDropMenu(false);
+          }}
+        >
+          <img
+            src={"/binBuddyIcon.svg"}
+            alt="Bin Buddy Icon"
+            className="w-5 md:w-10"
+          />
           <h1 className="text-green-700 font-bold italic text-xl md:text-4xl">
             Bin Buddy
           </h1>
@@ -60,7 +70,14 @@ const Navbar = () => {
         } transition-max-height duration-500 overflow-hidden flex flex-col items-center bg-gray-100 text-black md:hidden`}
       >
         {routes.map((route) => (
-          <Link key={route.name} href={route.route} className="py-2">
+          <Link
+            key={route.name}
+            href={route.route}
+            className="py-2"
+            onClick={() => {
+              settoggleDropMenu(false);
+            }}
+          >
             {route.name}
           </Link>
         ))}
