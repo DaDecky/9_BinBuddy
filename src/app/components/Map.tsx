@@ -33,7 +33,7 @@ const userIcon = new L.Icon({
 });
 
 const Map: React.FC = () => {
-  const [coordinates, setCoordinates] = useState<Coordinate[]>([]);
+  const [coordinates, setCoordinates] = useState<IBinCoordinate[]>([]);
   const [userPosition, setUserPosition] = useState<Coordinate | null>(null);
 
   useEffect(() => {
@@ -46,12 +46,7 @@ const Map: React.FC = () => {
           throw new Error("Network response was not ok");
         }
         const data: IBinCoordinate[] = await response.json();
-        setCoordinates(
-          data.map((coordinate) => ({
-            lat: parseFloat(coordinate.latitude),
-            lng: parseFloat(coordinate.longitude),
-          }))
-        );
+        setCoordinates(data);
       } catch (error) {
         console.error("There was an error fetching the coordinates!", error);
       }
@@ -94,10 +89,14 @@ const Map: React.FC = () => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       {coordinates.map((coordinate, index) => (
-        <Marker key={index} position={[coordinate.lat, coordinate.lng]}>
-          <Popup>
-            A marker at {coordinate.lat}, {coordinate.lng}
-          </Popup>
+        <Marker
+          key={index}
+          position={[
+            parseFloat(coordinate.latitude),
+            parseFloat(coordinate.longitude),
+          ]}
+        >
+          <Popup>{coordinate.description}</Popup>
         </Marker>
       ))}
       {userPosition && (
