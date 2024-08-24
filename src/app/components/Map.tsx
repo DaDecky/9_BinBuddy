@@ -27,8 +27,14 @@ interface IBinCoordinate {
   description: string;
 }
 
+const userIcon = new L.Icon({
+  iconUrl: "/current-location.png",
+  iconSize: [30, 30],
+});
+
 const Map: React.FC = () => {
   const [coordinates, setCoordinates] = useState<Coordinate[]>([]);
+  const [userPosition, setUserPosition] = useState<Coordinate | null>(null);
 
   useEffect(() => {
     const fetchCoordinates = async () => {
@@ -52,6 +58,29 @@ const Map: React.FC = () => {
     fetchCoordinates();
   }, []);
 
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(
+        (position) => {
+          setUserPosition({
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          });
+        },
+        (error) => {
+          console.error("Error getting user location:", error);
+        },
+        {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0,
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+    }
+  }, []);
+
   return (
     <MapContainer
       center={[-6.890685623184376, 107.61054884359541]}
@@ -69,6 +98,11 @@ const Map: React.FC = () => {
           </Popup>
         </Marker>
       ))}
+      {userPosition && (
+        <Marker position={[userPosition.lat, userPosition.lng]} icon={userIcon}>
+          <Popup>Your current position</Popup>
+        </Marker>
+      )}
     </MapContainer>
   );
 };
