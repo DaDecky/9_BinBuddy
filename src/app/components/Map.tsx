@@ -33,18 +33,25 @@ const userIcon = new L.Icon({
 });
 
 const Map: React.FC = () => {
-  const [coordinates, setCoordinates] = useState<IBinCoordinate[]>([]);
+  const [coordinates, setCoordinates] = useState<Coordinate[]>([]);
   const [userPosition, setUserPosition] = useState<Coordinate | null>(null);
 
   useEffect(() => {
     const fetchCoordinates = async () => {
       try {
-        const response = await fetch("/api/coordinates");
+        const response = await fetch("/api/coordinates", {
+          next: { revalidate: 3600 },
+        });
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
         const data: IBinCoordinate[] = await response.json();
-        setCoordinates(data);
+        setCoordinates(
+          data.map((coordinate) => ({
+            lat: parseFloat(coordinate.latitude),
+            lng: parseFloat(coordinate.longitude),
+          }))
+        );
       } catch (error) {
         console.error("There was an error fetching the coordinates!", error);
       }
@@ -80,21 +87,17 @@ const Map: React.FC = () => {
     <MapContainer
       center={[-6.890685623184376, 107.61054884359541]}
       zoom={17}
-      className="w-full h-full"
+      className="w-full h-screen"
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       {coordinates.map((coordinate, index) => (
-        <Marker
-          key={index}
-          position={[
-            parseFloat(coordinate.latitude),
-            parseFloat(coordinate.longitude),
-          ]}
-        >
-          <Popup>{coordinate.description}</Popup>
+        <Marker key={index} position={[coordinate.lat, coordinate.lng]}>
+          <Popup>
+            A marker at {coordinate.lat}, {coordinate.lng}
+          </Popup>
         </Marker>
       ))}
       {userPosition && (
