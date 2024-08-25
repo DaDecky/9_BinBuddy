@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { IoMenuOutline } from "react-icons/io5";
@@ -27,7 +26,7 @@ const Navbar = () => {
   const [toggleDropMenu, settoggleDropMenu] = useState(false);
   return (
     <>
-      <header className="flex w-full px-5 py-2 justify-between bg-gray-100 sticky top-0 z-50">
+      <header className="flex w-full px-5 py-2 justify-between bg-gray-100">
         <Link
           href={"/"}
           className="flex items-center"
