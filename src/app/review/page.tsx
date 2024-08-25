@@ -74,7 +74,7 @@ const ReviewPage: React.FC = () => {
         <p className="text-sm text-black-700 font-inter text-center">
           Make a review
         </p>
-        <form onSubmit={handleReviewSubmit} className="mt-2 text black">
+        <form onSubmit={handleReviewSubmit} className="mt-2 text-black">
           <input
             type="text"
             placeholder="Write your review"
