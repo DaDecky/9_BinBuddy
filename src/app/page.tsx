@@ -12,29 +12,66 @@ export default function Home() {
           <h1 className="text-8xl font-bold mb-4">Waste bin MAP locations and recycling</h1>
           <p className="text-xl font-light mb-8">Find nearby waste bin locations and learn how to recycle</p>
           <div className="flex flex-col items-center space-y-4 mb-8 gap-8">
-            <button className="bg-green-500 hover:bg-green-600 text-white font-bold italic py-5 px-20 rounded-full inline-block text-2xl">
-              Find Waste Bins
-            </button>
-            <button className="bg-transparent border border-white hover:bg-gray-700 text-white font-bold italic py-5 px-20 rounded-full inline-block text-2xl">
-              Learn Recycling
-            </button>
+            <Link href="/maps">
+              <button className="bg-green-500 hover:bg-green-600 text-white font-bold italic py-5 px-20 rounded-full inline-block text-2xl">
+                Find Waste Bins
+              </button>
+            </Link>
+            <Link href="/explore">
+              <button className="bg-transparent border border-white hover:bg-gray-700 text-white font-bold italic py-5 px-20 rounded-full inline-block text-2xl">
+                Learn Recycling
+              </button>
+            </Link>
+              
           </div>
         </div>
       </div>
       {/* Nanti yang bagian explore di bawah diganti sama yg ngerjain explore */}
-      <div className="w-full bg-blue-300 p-8 text-green-600">
+      <div className="w-full bg-blue-300 p-8 text-green-600" style={{backgroundColor:"#F1F5FF"}}>
         <div className="text-left w-full max-w-9xl mx-auto">
-          <h2 className="text-2xl font-bold mb-4">Featured Articles</h2>
-          <div className="mb-4">
-            <img src="/path/to/image1.jpg" alt="How to Properly Dispose of Different Types of Waste" className="w-full h-auto mb-2 rounded" />
-            <h3 className="text-xl font-semibold">How to Properly Dispose of Different Types of Waste</h3>
-            <p className="text-sm text-gray-500">Read more</p>
+          <h2 className="text-7xl font-bold mb-8">Featured Articles</h2>
+          <div className="container" style={{ maxWidth: "600px", marginBottom: "20px" }}>
+            <Link href="/explore/article">
+              <Image
+                src={"/rubbish.jpg"}
+                alt="rubbish"
+                width={500}
+                height={300}
+                style={{ cursor: "pointer", borderRadius: "8px" }}
+              />
+            </Link>
+            <h2 className="text-3xl font-bold mt-4 mb-6"style={{ marginBottom: "10px" }}>Pengelolaan Sampah di Indonesia</h2>
+            <p className="text-xl mb-4">Persoalan sampah di Indonesia menjadi tantangan yang berat di masa depan mengingat terbatasnya jumlah TPA berikut daya tampungnya. Apalagi pada tahun 2030, ... 
+            </p>
+            <Link href="/explore/article">
+              <p className="text-lg mb-4 underline">Read more</p>
+            </Link>
           </div>
-          <div>
-            <img src="/path/to/image2.jpg" alt="Beginner's Guide to Recycling at Home" className="w-full h-auto mb-2 rounded" />
-            <h3 className="text-xl font-semibold">Beginner's Guide to Recycling at Home</h3>
-            <p className="text-sm text-gray-500">Read more</p>
+          <div className="container" style={{ maxWidth: "600px", marginBottom: "20px" }}>
+            <Link href="/explore/article2">
+              <Image
+                src={"/recycling-bin.jpeg"}
+                alt="recycling bin"
+                width={500}
+                height={300}
+                style={{ cursor: "pointer", borderRadius: "8px" }}
+              />
+            </Link>
+            <h2 className="text-3xl font-bold mt-4 mb-6"style={{ marginBottom: "10px" }}>The Benefits of Recycling</h2>
+            <p className="text-xl mb-4">Recycle atau daur ulang adalah proses pengumpulan dan pemrosesan bahan yang seharusnya dibuang sebagai limbah dan mengubahnya menjadi produk baru. Recycle termasuk ... 
+            </p>
+            <Link href="/explore/article2">
+              <p className="text-lg mb-4 underline">Read more</p>
+            </Link>
           </div>
+            <div className="flex flex-row text-3xl mt-8 mb-8 underline">
+              <Link href="/explore">
+                <p className="flex flex-row">
+                  More
+                  <img src="/arrow.png" alt="Arrow" className="w-10 h-8 mr-2 mt-1 ml-3" />
+                </p> 
+              </Link>
+            </div>
         </div>
       </div>
       {/* sampe sini */}
@@ -44,7 +81,7 @@ export default function Home() {
           <div className="mb-9">
             <h3 className="text-4xl font-lg leading-normal">Learn about waste recycling and proper disposal methods</h3>
             <div className="flex justify-center video-container my-8">
-              <iframe width="840" height="472" src="https://www.youtube.com/embed/_rQxXFgKfF0" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+              <iframe width="840" height="472" src="https://www.youtube.com/embed/Qyu-fZ8BOnI" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
             </div>
             <div className="flex justify-center mt-8 max-w-2xl mx-auto border-4 border-green-500 py-5 px-20 rounded-lg">
               <div>
