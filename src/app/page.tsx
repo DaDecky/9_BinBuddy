@@ -13,12 +13,12 @@ export default function Home() {
           <p className="text-lg md:text-xl font-light mb-8">Find nearby waste bin locations and learn how to recycle</p>
           <div className="flex flex-col items-center space-y-4 mb-8 md:gap-8 sm:gap-4">
             <Link href="/maps">
-              <button className="bg-green-500 hover:bg-green-600 text-white font-bold italic py-3 sm:text-lg sm:py-3 sm:px-5 md:py-5 px-10 md:px-20 rounded-full inline-block text-xl md:text-2xl">
+              <button className="bg-green-500 hover:bg-green-600 text-white font-bold italic py-3 sm:text-sm sm:py-3 sm:px-5 md:py-5 px-10 md:px-20 rounded-full inline-block text-xl md:text-2xl">
                 Find Waste Bins
               </button>
             </Link>
             <Link href="/explore">
-              <button className="bg-transparent border border-white hover:bg-gray-700 text-white font-bold italic sm:text-lg sm:py-3 sm:px-5 py-3 md:py-5 px-10 md:px-20 rounded-full inline-block text-xl md:text-2xl">
+              <button className="bg-transparent border border-white hover:bg-gray-700 text-white font-bold italic sm:text-sm sm:py-3 sm:px-5 py-3 md:py-5 px-10 md:px-20 rounded-full inline-block text-xl md:text-2xl">
                 Learn Recycling
               </button>
             </Link>
