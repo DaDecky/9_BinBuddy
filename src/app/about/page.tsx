@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 
-const page = () => {
+const Page = () => {
     const [showSoftDev, setShowSoftDev] = useState(false);
     const [showUIUX, setShowUIUX] = useState(false);
     const [showDatSci, setShowDatSci] = useState(false);
@@ -208,7 +208,7 @@ const page = () => {
             <h1 className="text-xl font-bold text-green-700 font-inter text-center mb-10"> About Us </h1>
             <section className="text-m text-green-700 font-inter text-center mb-7">
                 <p className="mb-7">
-                    <span className="font-bold">Bin Buddy</span> is an application that functions as a trash can locator around Institut Teknologi Bandung's Ganesha Campus area
+                    <span className="font-bold">Bin Buddy</span> is an application that functions as a trash can locator around Institut Teknologi Bandung{"'"}s Ganesha Campus area
                     to help students keep the surroundings clean. 
                 </p>
 
@@ -395,4 +395,4 @@ const page = () => {
   )
 };
 
-export default page;
+export default Page;
