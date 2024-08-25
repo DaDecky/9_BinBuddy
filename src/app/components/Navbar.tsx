@@ -27,7 +27,7 @@ const Navbar = () => {
   const [toggleDropMenu, settoggleDropMenu] = useState(false);
   return (
     <>
-      <header className="flex w-full px-5 py-2 justify-between bg-gray-100">
+      <header className="flex w-full px-5 py-2 justify-between bg-gray-100 sticky top-0 z-50">
         <Link
           href={"/"}
           className="flex items-center"
