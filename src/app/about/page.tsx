@@ -247,7 +247,7 @@ const page = () => {
                     </button>
 
                     {showDicky && (
-                        <img src="/Photos/Dicky.jpg" alt="Dicky" style={{width : '500px', height : '500px' }} className="rounded-full"></img>
+                        <img src="/Photos/Dicky.jpg" alt="Dicky" style={{width : '400px', height : '500px' }} className="rounded-full"></img>
                     )}
 
                     <button
@@ -257,7 +257,7 @@ const page = () => {
                     </button>
 
                     {showSharon && (
-                        <img src="/Photos/Sharon.jpg" alt="Dicky" className="rounded-full"></img>
+                        <img src="/Photos/Sharon.jpg" alt="Sharon" style={{width : '400px', height : '500px' }} className="rounded-full"></img>
                     )}
 
                     <button
@@ -267,7 +267,7 @@ const page = () => {
                     </button>
 
                     {showFilbert && (
-                        <img src="/Photos/Filbert.jpg" alt="Filbert" className="rounded-full"></img>
+                        <img src="/Photos/Filbert.jpg" alt="Filbert" style={{width : '400px', height : '500px' }} className="rounded-full"></img>
                     )}
 
                     <button
@@ -277,7 +277,7 @@ const page = () => {
                     </button>
 
                     {showTimur && (
-                        <img src="/Photos/Timur.jpg" alt="Timur" className="rounded-full"></img>
+                        <img src="/Photos/Timur.jpg" alt="Timur" style={{width : '400px', height : '400px' }} className="rounded-full"></img>
                     )}
 
                     <button
@@ -287,7 +287,7 @@ const page = () => {
                     </button>
 
                     {showKenneth && (
-                        <img src="/Photos/Kenneth.jpg" alt="Kenneth" className="rounded-full"></img>
+                        <img src="/Photos/Kenneth.jpg" alt="Kenneth" style={{width : '400px', height : '500px' }} className="rounded-full"></img>
                     )}
                 </div>
             )}
@@ -307,7 +307,7 @@ const page = () => {
                     </button>
 
                     {showNelson && (
-                        <img src="/Photos/Nelson.jpg" alt="Nelson" className="rounded-full"></img>
+                        <img src="/Photos/Nelson.jpg" alt="Nelson" style={{width : '400px', height : '500px' }} className="rounded-full"></img>
                     )}
                 </div>
             )}
@@ -328,7 +328,7 @@ const page = () => {
                     </button>
 
                     {showAlbert && (
-                        <img src="/Photos/Albert.jpg" alt="Albert" className="rounded-full"></img>
+                        <img src="/Photos/Albert.jpg" alt="Albert" style={{width : '400px', height : '400px' }} className="rounded-full"></img>
                     )}
 
                     <button
@@ -338,7 +338,7 @@ const page = () => {
                     </button>
 
                     {showAlma && (
-                        <img src="/Photos/Alma.jpg" alt="Alma" className="rounded-full"></img>
+                        <img src="/Photos/Alma.jpg" alt="Alma" style={{width : '400px', height : '500px' }} className="rounded-full"></img>
                     )}
 
                     <button
@@ -348,7 +348,7 @@ const page = () => {
                     </button>
 
                     {showAudy && (
-                        <img src="/Photos/Audy.jpg" alt="Audy" className="rounded-full"></img>
+                        <img src="/Photos/Audy.jpg" alt="Audy" style={{width : '400px', height : '500px' }} className="rounded-full"></img>
                     )}
                 </div>
             )}
@@ -368,7 +368,7 @@ const page = () => {
                     </button>
 
                     {showVandega && (
-                        <img src="/Photos/Vandega.jpg" alt="Vandega" className="rounded-full"></img>
+                        <img src="/Photos/Vandega.jpg" alt="Vandega" style={{width : '400px', height : '500px' }} className="rounded-full"></img>
                     )}
 
                     <button
@@ -378,7 +378,7 @@ const page = () => {
                     </button>
 
                     {showIndana && (
-                        <img src="/Photos/Indana.jpg" alt="Kenneth" className="rounded-full"></img>
+                        <img src="/Photos/Indana.jpg" alt="Indana" style={{width : '400px', height : '400px' }} className="rounded-full"></img>
                     )}
                 </div>
             )}
