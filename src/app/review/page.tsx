@@ -1,11 +1,11 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 
-const ReviewPage = () => {
-  const [showMore, setShowMore] = useState(false);
-  const [reviews, setReviews] = useState([]);
-  const [newReview, setNewReview] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
+const ReviewPage: React.FC = () => {
+  const [showMore, setShowMore] = useState<boolean>(false);
+  const [reviews, setReviews] = useState<string[]>([]);
+  const [newReview, setNewReview] = useState<string>("");
+  const [currentPage, setCurrentPage] = useState<number>(1);
 
   const reviewsPerPage = 5;
 
@@ -13,12 +13,16 @@ const ReviewPage = () => {
     setShowMore(!showMore);
   };
 
-  const handleReviewSubmit = (event) => {
+  const handleReviewSubmit = (event: FormEvent) => {
     event.preventDefault();
     if (newReview.trim()) {
       setReviews([newReview, ...reviews]);
       setNewReview("");
     }
+  };
+
+  const handleReviewChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setNewReview(event.target.value);
   };
 
   const totalPages = Math.ceil(reviews.length / reviewsPerPage);
@@ -61,20 +65,8 @@ const ReviewPage = () => {
           </div>
         )}
 
-        <div className="flex justify-center items-center mt-4">
-          <button
-            className="underline text-green-500 flex items-center"
-            onClick={handleMoreClick}
-          >
-            <span className="text-center">More</span>
-            <span className="ml-1">→</span>
-          </button>
-        </div>
-
         {showMore && (
           <div className="mt-4">
-            {/* Additional content when "More" is clicked */}
-            {/* Replace with your desired content */}
           </div>
         )}
       </div>
@@ -88,12 +80,11 @@ const ReviewPage = () => {
             placeholder="Write your review"
             className="w-full border rounded p-2"
             value={newReview}
-            onChange={(e) => setNewReview(e.target.value)}
+            onChange={handleReviewChange}
           />
         </form>
       </div>
 
-      {/* Move Pagination Controls Here */}
       {totalPages > 1 && (
         <div className="flex justify-center items-center mt-4 space-x-4">
           <button 
