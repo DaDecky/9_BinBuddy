@@ -35,6 +35,7 @@ const userIcon = new L.Icon({
 const Map: React.FC = () => {
   const [coordinates, setCoordinates] = useState<IBinCoordinate[]>([]);
   const [userPosition, setUserPosition] = useState<Coordinate | null>(null);
+  const [closestBin, setClosestBin] = useState<IBinCoordinate | null>(null);
 
   useEffect(() => {
     const fetchCoordinates = async () => {
@@ -77,6 +78,23 @@ const Map: React.FC = () => {
       console.error("Geolocation is not supported by this browser.");
     }
   }, []);
+
+  useEffect(() => {
+    if (userPosition && coordinates.length > 0) {
+      const closest = coordinates.reduce((prev, current) => {
+        const prevDistance = Math.sqrt(
+          Math.pow(userPosition.lat - parseFloat(prev.latitude), 2) +
+            Math.pow(userPosition.lng - parseFloat(prev.longitude), 2)
+        );
+        const currentDistance = Math.sqrt(
+          Math.pow(userPosition.lat - parseFloat(current.latitude), 2) +
+            Math.pow(userPosition.lng - parseFloat(current.longitude), 2)
+        );
+        return prevDistance < currentDistance ? prev : current;
+      });
+      setClosestBin(closest);
+    }
+  }, [userPosition, coordinates]);
 
   return (
     <MapContainer
