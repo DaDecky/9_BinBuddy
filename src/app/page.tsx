@@ -66,7 +66,7 @@ export default function Home() {
             <Link href="/explore">
               <p className="flex flex-row">
                 More
-                <img src="/arrow.png" alt="Arrow" className="sm:w-5 md:w-10 sm:h-4 md:h-8 mr-2 sm:mt-2 md:mt-1 sm:ml-2 md:ml-3" />
+                <img src="/arrow.png" alt="Arrow" className="w-5 xs:w-10 h-4 md:h-8 mr-2 mt-2 md:mt-1 ml-2 md:ml-3" />
               </p> 
             </Link>
           </div>
@@ -83,7 +83,7 @@ export default function Home() {
             <div className="flex justify-center mt-8 sm:max-w-sm md:max-w-2xl mx-auto border-4 border-green-500 sm:py-4 md:py-5 sm:px-10 md:px-20 rounded-lg">
               <div>
                 <h3 className="flex flex-row sm:text-base md:text-xl md:text-2xl font-semibold justify-center">
-                  <img src="/interaktif.png" alt="Leaf Icon" className="sm:w-4 md:w-6 sm:h-4 md:h-6 sm:mr-1 md:mr-2 sm:mt-1" />
+                  <img src="/interaktif.png" alt="Leaf Icon" className="w-4 md:w-6 h-4 md:h-6 mr-1 md:mr-2 mt-1" />
                   Interactive Waste Bin Map
                 </h3>
                 <p className="text-base sm:text-xs md:text-lg text-center">Explore a map showing the locations of waste bins along with their types (organic, recyclable).</p>
@@ -101,8 +101,8 @@ export default function Home() {
             </div>
           </div>
           <div className="flex flex-col text-center text-gray-600 sm:w-1/2 lg:w-2/3 max-w-9xl mx-auto bg-white p-4 md:p-8 rounded-lg">
-            <input type="text" placeholder="Search for waste bin locations" className="sm:text-xs md:text-base p-2 md:p-4 mb-4 border border-green-600 rounded-lg w-full" />
-            <button className="bg-green-600 hover:bg-green-600 text-white font-bold py-2 sm:text-sm md:text-xl md:py-4 px-4 md:px-8 rounded-full w-full">Explore</button>
+            <input type="text" placeholder="Search for waste bin locations" className="text-xs md:text-base p-2 md:p-4 mb-4 border border-green-600 rounded-lg w-full" />
+            <button className="bg-green-600 hover:bg-green-600 text-white font-bold py-2 text-sm md:text-xl md:py-4 px-4 md:px-8 rounded-full w-full">Explore</button>
           </div>
           <p className="sm:text-xs md:text-sm font-base leading-normal">By using this app, you agree to follow the waste disposal guidelines.</p>
         </div>

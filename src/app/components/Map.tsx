@@ -1,8 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
+import { LocationContext } from "./LocationContext";
 
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -33,13 +34,16 @@ const userIcon = new L.Icon({
 });
 
 const Map: React.FC = () => {
+  const locationContext = useContext(LocationContext);
+  const { userPosition } = locationContext || {};
+
   const [coordinates, setCoordinates] = useState<IBinCoordinate[]>([]);
-  const [userPosition, setUserPosition] = useState<Coordinate | null>(null);
 
   useEffect(() => {
     const fetchCoordinates = async () => {
       try {
         const response = await fetch("/api/coordinates", {
+          cache: "force-cache",
           next: { revalidate: 3600 },
         });
         if (!response.ok) {
@@ -55,34 +59,12 @@ const Map: React.FC = () => {
     fetchCoordinates();
   }, []);
 
-  useEffect(() => {
-    if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(
-        (position) => {
-          setUserPosition({
-            lat: position.coords.latitude,
-            lng: position.coords.longitude,
-          });
-        },
-        (error) => {
-          console.error("Error getting user location:", error);
-        },
-        {
-          enableHighAccuracy: true,
-          timeout: 5000,
-          maximumAge: 0,
-        }
-      );
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-    }
-  }, []);
-
   return (
     <MapContainer
       center={[-6.890685623184376, 107.61054884359541]}
       zoom={17}
       className="w-full h-screen"
+      zoomControl={false}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
