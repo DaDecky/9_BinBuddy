@@ -3,8 +3,8 @@ import { BiBorderRadius } from "react-icons/bi";
 
 const Article2 = () => {
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", padding: "20px" }}>
-      <h1 style={{marginBlockEnd: "20px"}}>
+    <div style={{display: "flex", flexDirection: "column", alignItems: "center", padding: "20px", backgroundColor: "#f0f5ff", color: "black", minHeight: "100vh" }}>
+      <h1 style={{fontSize: 20,fontWeight: 200, marginBlockEnd: "20px"}}>
         Benefits of Recycling
         </h1>
       <Image

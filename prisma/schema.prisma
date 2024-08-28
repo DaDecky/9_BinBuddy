@@ -25,3 +25,13 @@ model Coordinate {
 
   @@index([latitude, longitude])
 }
+
+model NewsArticle {
+  id        Int      @id @default(autoincrement())
+  title     String
+  content   String
+  imageUrl  String?  // Add this field to store the image URL
+  createdAt DateTime @default(now())
+}
+
+
