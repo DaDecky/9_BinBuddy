@@ -7,7 +7,7 @@ const ReviewPage: React.FC = () => {
   const [newReview, setNewReview] = useState<string>("");
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  const reviewsPerPage = 5;
+  const reviewsPerPage = currentPage === 1 ? 2 : 5;
 
   const handleMoreClick = () => {
     setShowMore(!showMore);
@@ -25,12 +25,18 @@ const ReviewPage: React.FC = () => {
     setNewReview(event.target.value);
   };
 
-  const totalPages = Math.ceil(reviews.length / reviewsPerPage);
+  const totalPages = Math.ceil((reviews.length + 2) / reviewsPerPage);
 
-  const currentReviews = reviews.slice(
-    (currentPage - 1) * reviewsPerPage,
-    currentPage * reviewsPerPage
-  );
+  let currentReviews: string[] = [];
+
+  if (currentPage === 1) {
+    currentReviews = reviews.slice(0, 2);
+  } else {
+    currentReviews = reviews.slice(
+      (currentPage - 2) * reviewsPerPage + 2,
+      (currentPage - 1) * reviewsPerPage + 2
+    );
+  }
 
   const goToNextPage = () => {
     if (currentPage < totalPages) {
@@ -45,15 +51,23 @@ const ReviewPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-green-300 p-4 rounded-lg" style={{ backgroundColor: '#E7F0DC' }}>
+    <div className="bg-green-300 p-4 rounded-lg min-h-screen" style={{ backgroundColor: '#E7F0DC' }}>
       <div className="text-center">
         <h1 className="text-xl font-bold text-green-700 font-inter">Reviews</h1>
         <p className="text-sm text-green-700 font-inter">
           Hear what they have to say about our waste disposal and recycling solution!
         </p>
 
-        {currentReviews.length > 0 && (
+        {currentPage === 1 && (
           <div className="mt-4">
+            <div className="bg-white p-2 rounded shadow mb-2 text-black-700 font-inter ">Amazing Apps </div>
+            <div className="bg-white p-2 rounded shadow mb-2 text-black-700 font-inter">Bantu banget 🥺</div>
+            <div className="bg-white p-2 rounded shadow mb-2 text-black-700 font-inter">Sangat membantu 👍</div>
+          </div>
+        )}
+
+        {currentReviews.length > 0 && (
+          <div className="mt-2">
             {currentReviews.map((review, index) => (
               <div 
                 key={index} 
