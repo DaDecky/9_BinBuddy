@@ -1,9 +1,14 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+import React, { useEffect, useRef, useState } from "react";
 import { IoMenuOutline } from "react-icons/io5";
 
 const routes = [
+  {
+    name: "Home",
+    route: "/",
+  },
   {
     name: "Maps",
     route: "/maps",
@@ -24,9 +29,26 @@ const routes = [
 
 const Navbar = () => {
   const [toggleDropMenu, settoggleDropMenu] = useState(false);
+  const pathname = usePathname();
+
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      settoggleDropMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <>
-      <header className="flex w-full px-5 py-2 justify-between bg-gray-100">
+    <header className="z-[1000] sticky top-0 shadow-2xl">
+      <div className="flex w-full px-5 py-2 justify-between bg-gray-100">
         <Link
           href={"/"}
           className="flex items-center"
@@ -46,8 +68,15 @@ const Navbar = () => {
         <div className="my-auto ">
           <nav className="text-gray-900 font-semibold text-md gap-10 hidden md:flex">
             {routes.map((route) => (
-              <Link key={route.name} href={route.route}>
+              <Link key={route.name} href={route.route} className="relative">
                 {route.name}
+                <div
+                  className={`rounded-sm absolute bottom-0 left-0 right-0 h-1 transition-transform duration-300 ${
+                    pathname == route.route
+                      ? "transform scale-x-100 bg-black"
+                      : "transform scale-x-0"
+                  }`}
+                ></div>
               </Link>
             ))}
           </nav>
@@ -62,8 +91,9 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-      </header>
+      </div>
       <nav
+        ref={menuRef}
         className={`${
           toggleDropMenu ? "max-h-40" : "max-h-0"
         } transition-max-height duration-500 overflow-hidden flex flex-col items-center bg-gray-100 text-black md:hidden`}
@@ -72,7 +102,7 @@ const Navbar = () => {
           <Link
             key={route.name}
             href={route.route}
-            className="py-2"
+            className="py-2 hover:bg-gray-200 w-full text-center"
             onClick={() => {
               settoggleDropMenu(false);
             }}
@@ -81,7 +111,7 @@ const Navbar = () => {
           </Link>
         ))}
       </nav>
-    </>
+    </header>
   );
 };
 
