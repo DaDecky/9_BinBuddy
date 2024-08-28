@@ -338,7 +338,7 @@ const Page = () => {
                     </button>
 
                     {showAlma && (
-                        <img src="/Photos/Alma.jpg" alt="Alma" style={{width : '400px', height : '500px' }} className="rounded-full"></img>
+                        <img src="/Photos/Alma.jpg" alt="Alma" style={{width : '400px', height : '400px' }} className="rounded-full"></img>
                     )}
 
                     <button
@@ -348,7 +348,7 @@ const Page = () => {
                     </button>
 
                     {showAudy && (
-                        <img src="/Photos/Audy.jpg" alt="Audy" style={{width : '400px', height : '500px' }} className="rounded-full"></img>
+                        <img src="/Photos/Audy.jpg" alt="Audy" style={{width : '400px', height : '400px' }} className="rounded-full"></img>
                     )}
                 </div>
             )}
