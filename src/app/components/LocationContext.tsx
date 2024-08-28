@@ -35,6 +35,7 @@ export const LocationProvider: React.FC<{ children: ReactNode }> = ({
     const fetchCoordinates = async () => {
       try {
         const response = await fetch("/api/coordinates", {
+          cache: "force-cache",
           next: { revalidate: 3600 },
         });
         if (!response.ok) {
