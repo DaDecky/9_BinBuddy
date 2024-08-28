@@ -83,6 +83,7 @@ const Map: React.FC = () => {
       center={[-6.890685623184376, 107.61054884359541]}
       zoom={17}
       className="w-full h-screen"
+      zoomControl={false}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
