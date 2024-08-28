@@ -1,5 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
+import { LocationProvider } from "../components/LocationContext";
+import NavigateButton from "../components/NavigateButton";
 
 const Map = dynamic(() => import("../components/Map"), {
   ssr: false,
@@ -7,14 +9,12 @@ const Map = dynamic(() => import("../components/Map"), {
 
 const Page = () => {
   return (
-    <div className="h-screen">
-      <div className="fixed bottom-5 left-0 right-0 text-center  z-[1000] ">
-        <button className="bg-slate-500/80 p-2 rounded-md ">
-          Navigate To Closest Bin
-        </button>
+    <LocationProvider>
+      <div className="h-screen">
+        <NavigateButton />
+        <Map />
       </div>
-      <Map />
-    </div>
+    </LocationProvider>
   );
 };
 
