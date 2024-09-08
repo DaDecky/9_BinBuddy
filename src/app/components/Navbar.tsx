@@ -95,7 +95,7 @@ const Navbar = () => {
       <nav
         ref={menuRef}
         className={`${
-          toggleDropMenu ? "max-h-40" : "max-h-0"
+          toggleDropMenu ? "max-h-60" : "max-h-0"
         } transition-max-height duration-500 overflow-hidden flex flex-col items-center bg-gray-100 text-black md:hidden`}
       >
         {routes.map((route) => (
