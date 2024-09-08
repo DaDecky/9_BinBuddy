@@ -78,7 +78,24 @@ const Map: React.FC = () => {
             parseFloat(coordinate.longitude),
           ]}
         >
-          <Popup>{coordinate.description}</Popup>
+          <Popup>
+            <div className="text-center ">
+              {coordinate.description}
+              <br />
+              <button className="bg-blue-300 py-1 px-2 mt-2 rounded-md ">
+                <a
+                  target="_blank"
+                  href={
+                    userPosition
+                      ? `https://www.google.com/maps/dir/?api=1&origin=${userPosition?.lat},${userPosition?.lng}&destination=${coordinate.latitude},${coordinate.longitude}&travelmode=walking&dir_action=navigate`
+                      : `https://www.google.com/maps/dir/?api=1&origin=My+Location&destination=${coordinate.latitude},${coordinate.longitude}&travelmode=walking&dir_action=navigate`
+                  }
+                >
+                  <span className="text-black text-sm">Navigate Here</span>
+                </a>
+              </button>
+            </div>
+          </Popup>
         </Marker>
       ))}
       {userPosition && (
