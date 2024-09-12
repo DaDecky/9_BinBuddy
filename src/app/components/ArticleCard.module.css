@@ -1,0 +1,7 @@
+.ellipsismultiline {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Number of lines to show before ellipsis */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
