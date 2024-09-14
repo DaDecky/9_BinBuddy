@@ -46,8 +46,8 @@ export default function Home() {
           >
             <Link href="/explore/article">
               <Image
-                src={"/rubbish.jpg"}
-                alt="rubbish"
+                src={"/tpa-indo.jpg"}
+                alt="tpa indonesia"
                 width={500}
                 height={300}
                 style={{ cursor: "pointer", borderRadius: "8px" }}
@@ -76,8 +76,8 @@ export default function Home() {
           >
             <Link href="/explore/article2">
               <Image
-                src={"/recycling-bin.jpeg"}
-                alt="recycling bin"
+                src={"/tipesampah.png"}
+                alt="tempat sampah di itb"
                 width={500}
                 height={300}
                 style={{ cursor: "pointer", borderRadius: "8px" }}
@@ -87,14 +87,14 @@ export default function Home() {
               className="text-2xl sm:text-xl md:text-3xl font-bold mt-4 mb-6"
               style={{ marginBottom: "10px" }}
             >
-              The Benefits of Recycling
+              Pengelolaan Sampah di ITB
             </h2>
             <p className="text-lg sm:text-sm md:text-xl mb-4">
-              Recycle atau daur ulang adalah proses pengumpulan dan pemrosesan
-              bahan yang seharusnya dibuang sebagai limbah dan mengubahnya
-              menjadi produk baru. Recycle termasuk ...
+              Pengelolaan sampah yang efektif dimulai dari pemilahan sampah di sumbernya. 
+              Pemilahan ini penting untuk memastikan bahwa setiap jenis sampah dapat dikelola 
+              dan diolah dengan cara yang paling sesuai, ...
             </p>
-            <Link href="/explore/article2">
+            <Link href="/explore/article3">
               <p className="text-base sm:text-sm md:text-lg mb-4 underline">
                 Read more
               </p>
